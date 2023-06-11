@@ -1,0 +1,14 @@
+.pBtn p {
+    padding-left: 0.2rem;
+    color: aliceblue;
+}
+
+.rightSide {
+    display: flex;
+    align-items: center;
+}
+
+.powerUp svg {
+    color: white;
+    transition: 1s;
+}
