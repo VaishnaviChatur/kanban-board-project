@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import { X } from "react-feather";
 
-import "./Editable.css";
+import styles from "./Editable.module.css";
 
 function Editable(props) {
   const [isEditable, setIsEditable] = useState(false);
@@ -18,10 +18,10 @@ function Editable(props) {
   };
 
   return (
-    <div className="editable">
+    <div className={styles.editable}>
       {isEditable ? (
         <form
-          className={`editable_edit ${props.editClass ? props.editClass : ""}`}
+          className={`${styles.editable_edit} ${props.editClass ? props.editClass : ""}`}
           onSubmit={submission}
         >
           <input
@@ -31,15 +31,15 @@ function Editable(props) {
             onChange={(event) => setInputText(event.target.value)}
             autoFocus
           />
-          <div className="editable_edit_footer">
+          <div className={styles.editable_edit_footer}>
 
             <button type="submit">{props.buttonText || "Add"}</button>
-            <X onClick={() => setIsEditable(false)} className="closeIcon" />
+            <X onClick={() => setIsEditable(false)} className={styles.closeIcon} />
           </div>
         </form>
       ) : (
         <p
-          className={`editable_display ${
+          className={`${styles.editable_display} ${
             props.displayClass ? props.displayClass : ""
           }`}
           onClick={() => setIsEditable(true)}

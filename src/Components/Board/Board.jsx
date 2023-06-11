@@ -4,30 +4,35 @@ import { MoreHorizontal } from "react-feather";
 import Card from "../Card/Card";
 import Dropdown from "../Dropdown/Dropdown";
 import Editable from "../Editabled/Editable";
-
-import "./Board.css";
+import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
+import styles from "./Board.module.css";
 
 function Board(props) {
-  const [showDropdown, setShowDropdown] = useState(false);
+ 
+  const [showDropdown, setShowDropdown] = useState(true);
   const { id, title, date, labels } = props.board;
   return (
-    <div className="board" >
-      <div className="board_header"
+    <div className={styles.board} >
+      <div className={styles.board_header}
      
       >
-        <p className="board_header_title">
+        <p className={styles.board_header_title}>
           {props.board?.title}
           <span> {props.board?.cards?.length || 0} </span>{" "}
         </p>
         <div
-          className="board_header_title_more"
-          onClick={() => setShowDropdown(true)}
+          className={styles.board_header_title_more}
+          // onClick={() => setShowDropdown(true)}
           
-        //   draggable
-        //   onDragEnd={() => props.dragEnded(props.boardId, id)}
-        //   onDragEnter={() => props.dragEntered(props.boardId, id)}
-        >
-          <MoreHorizontal style={{ margin: "10px" }} />
+          // draggable
+          // onDragEnd={() => props.dragEnded(props.boardId, id)}
+          // onDragEnter={() => props.dragEntered(props.boardId, id)}
+        >     
+       
+              <RemoveCircleIcon style={{color:'blue', margin:'5px'}} onClick={() => props.removeBoard()}/>{" "}
+           
+              
+          {/* <RemoveCircleIcon style={{ margin: "10px" }} />
           {showDropdown && (
             <Dropdown
               class="board_dropdown"
@@ -36,13 +41,14 @@ function Board(props) {
             >
               <p onClick={() => props.removeBoard()}> Delete Board </p>{" "}
             </Dropdown>
-          )}{" "}
+          )} 
+        {" "} */}
         </div>{" "}
       </div>{" "}
-      <div className="board_cards custom-scroll"
-        draggable
-        onDragEnd={() => props.dragEnded(props.boardId, id)}
-        onDragEnter={() => props.dragEntered(props.boardId, id)}
+      <div className={styles.board_cards} custom-scroll
+        // draggable
+        // onDragEnd={() => props.dragEnded(props.boardId, id)}
+        // onDragEnter={() => props.dragEntered(props.boardId, id)}
         
       >
         {props.board?.cards?.map((item) => (
@@ -65,8 +71,8 @@ function Board(props) {
           <Editable
             text="+ Add Card"
             placeholder="Enter Card Title"
-            displayClass="board_add-card"
-            editClass="board_add-card_edit"
+            displayClass={styles.board_add_card}
+            editClass={styles.board_add_card_edit}
             onSubmit={(value) => props.addCard(props.board?.id, value)}
           />{" "}
         </div>

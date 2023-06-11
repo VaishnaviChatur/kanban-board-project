@@ -64,7 +64,7 @@
     overflow-y: auto;
 }
 
-.board_add-card {
+.board_add_card {
     background-color: #fff;
     color: #000;
     border-radius: 10px;
@@ -73,7 +73,7 @@
     text-align: center;
 }
 
-.board_add-card_edit {
+.board_add_card_edit {
     background-color: #fff;
     border-radius: 10px;
     padding: 10px;

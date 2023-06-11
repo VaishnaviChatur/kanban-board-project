@@ -25,7 +25,7 @@ function Dropdown(props) {
   return (
     <div
       ref={dropdownRef}
-      className={`styles.dropdown custom-scroll ${props.class ? props.class : ""}`}
+      className={`${styles.dropdow}n custom-scroll ${props.class ? props.class : ""}`}
     >
       {props.children}
     </div>
